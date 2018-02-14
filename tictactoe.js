@@ -13,7 +13,7 @@ var p2_l = 0;
 function play(event , id) {
 
 
-	if(!event.target.innerText && !winner){
+	if(!event.target.innerText && !winner && x != 9){
 		event.target.innerText = turn? "O": "X";
 		turn = !turn;
 		lastID = event.target.innerText;
@@ -39,12 +39,15 @@ function play(event , id) {
 		document.getElementById("lCount1").innerText=p2_l;
 	}
 	else if (winner == "O"){
-		console.log("winner:" + " " + winner);
 		document.getElementById("status").innerText="Player 2 Wins";
 		p1_l++;
 		p2_w++;
 		document.getElementById("wCount2").innerText=p2_w;
 		document.getElementById("lCount2").innerText=p1_l;
+	}
+
+	if(x == 9){
+		document.getElementById("status").innerText="Draw Game";
 	}
 }
 
@@ -59,6 +62,5 @@ function reset(event){
 		visit[i] = "";
 		block[i] = "";
 	}
-	console.log(lastID + " " + winner);
 	
 }
