@@ -1,7 +1,6 @@
 
 var turn = false;
-var lastID = null;
-var visit = []; 
+var lastID = null; 
 var x = 0;
 var block = [];
 var winner = null;
@@ -17,7 +16,6 @@ function play(event , id) {
 		event.target.innerText = turn? "O": "X";
 		turn = !turn;
 		lastID = event.target.innerText;
-		visit[x] = document.getElementById(id.toString());
 		x++;
 	}
 
@@ -59,7 +57,6 @@ function reset(event){
 	document.getElementById("status").innerText="New Game";
 	for (var i = 0; i < 9; i++) {
 		document.getElementById(i).innerText = "";
-		visit[i] = "";
 		block[i] = "";
 	}
 	
